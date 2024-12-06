@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự đoán Tử Vi</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dự Đoán Tử Vi</h1>
+
+        <!-- Chọn đặc điểm tính cách -->
+        <h2>Chọn Đặc Điểm Tính Cách</h2>
+        <form id="personality-form" method="POST">
+            {% csrf_token %}
+            <div class="traits-selection">
+                {% for trait_key, trait_name in personality_traits.items %}
+                    <div>
+                        <input type="checkbox" name="selected_traits[]" value="{{ trait_key }}" id="{{ trait_key }}">
+                        <label for="{{ trait_key }}">{{ trait_name }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+            <button type="submit" id="submit-personality-button">Xem Kết Quả</button>
+        </form>
+
+        <!-- Kết quả mức 1 -->
+        <div id="result-level-1" style="display:none;">
+            <h3>Kết Quả Mức 1</h3>
+            <p><strong>Kết luận mức 1:</strong> <span id="level-1-conclusions"></span></p>
+            <p><strong>Quy tắc áp dụng mức 1:</strong> <span id="applied-rules-1"></span></p>
+        </div>
+
+
+        <!-- Dropdown đặc điểm ngoại hình -->
+<div id="physical-traits-section" style="display:none;">
+    <h2>Chọn Đặc Điểm Ngoại Hình</h2>
+    <form id="physical-traits-form" method="POST">
+        {% csrf_token %}
+        <div id="main-physical-dropdown" class="dropdown">
+            <label for="main-physical-input">Đặc điểm chính:</label>
+            <input type="text" id="main-physical-input" readonly placeholder="Chọn tối đa 3 đặc điểm">
+            <div class="checkbox-list">
+                {% for trait_key, trait_name in physical_traits.items %}
+                    {% if forloop.counter <= 20 %}
+                        <div>
+                            <input type="checkbox" id="{{ trait_key }}" name="selected_physical_traits[]" value="{{ trait_key }}">
+                            <label for="{{ trait_key }}">{{ trait_name }}</label><br>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="additional-physical-dropdown" class="dropdown">
+            <label for="additional-physical-input">Đặc điểm bổ sung:</label>
+            <input type="text" id="additional-physical-input" readonly placeholder="Chọn tối đa 3 đặc điểm">
+            <div class="checkbox-list">
+                {% for trait_key, trait_name in physical_traits.items %}
+                    {% if forloop.counter > 20 %}
+                        <div>
+                            <input type="checkbox" id="{{ trait_key }}" name="selected_physical_traits[]" value="{{ trait_key }}">
+                            <label for="{{ trait_key }}">{{ trait_name }}</label><br>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <button type="submit" id="submit-physical-button">Xem Kết Luận Cuối</button>
+    </form>
+</div>
+
+
+        <!-- Kết quả cuối cùng -->
+<div id="result-level-2" style="display:none;">
+    <h3>Kết Quả Mức 2</h3>
+    <p><strong>Kết luận mức 2:</strong> <span id="level-2-conclusions"></span></p>
+    <p><strong>Quy tắc áp dụng mức 2:</strong> <span id="applied-rules-2"></span></p>
+    <p><strong>Lời khuyên:</strong> <span id="advice"></span></p>
+</div>
+    </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    const csrfToken = '{{ csrf_token }}';
+    const personalityFormUrl = "{% url 'home' %}";
+    const physicalTraitsFormUrl = "{% url 'home' %}";
+</script>
+<script src="{% static 'js/main.js' %}"></script>
+</html>

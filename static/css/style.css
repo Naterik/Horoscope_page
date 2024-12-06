@@ -1,0 +1,135 @@
+/* tuvi/css/style.css */
+
+/* Đặt kiểu chữ và màu nền cho toàn bộ trang */
+/* body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f2e8;
+    color: #4a3f35;
+    margin: 0;
+    padding: 0;
+} */
+
+body {
+    background-image: url("https://toigingiuvedep.vn/wp-content/uploads/2022/05/anh-vu-tru.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Tiêu đề chính */
+h1 {
+    font-size: 24px;
+    color: #a0522d;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Tiêu đề phụ */
+h2 {
+    font-size: 20px;
+    color: #6b4226;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Nhãn và ô checkbox */
+.traits-selection label {
+    font-size: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.traits-selection input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.traits-selection{
+    border:1px solid black;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    margin:30px 0px;
+}
+#submit-personality-button,
+#submit-physical-button{
+    margin:auto;
+}
+
+/* Nút bấm */
+button {
+    display: block;
+    width: 30%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #a0522d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+
+
+button:hover {
+    background-color: #8b4513;
+}
+
+/* Kết quả */
+#result-level-1,
+#physical-traits-section,
+#result-final {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff7e6;
+    border: 1px solid #e0d6c1;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#result-level-1 p,
+#result-final p {
+    font-size: 16px;
+    color: #5c4f45;
+}
+
+#result-level-1,
+#physical-traits-section,
+#result-final {
+    display: block;
+    overflow: auto;
+    clear: both;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    h1, h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+}
+
+
