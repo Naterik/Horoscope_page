@@ -1,18 +1,16 @@
 $(document).ready(function () {
-    function handleDropdownHover(dropdownId, inputId, maxSelection) {
+    function handleDropdownClick(dropdownId, inputId, maxSelection) {
         const dropdown = $(`#${dropdownId}`);
         const input = $(`#${inputId}`);
-
-        // Hiển thị danh sách checkbox khi di chuột
-        dropdown.on("mouseenter", function () {
-            $(this).find(".checkbox-list").show();
+        const checkboxList = dropdown.find(".checkbox-list");
+        input.on("click", function () {
+            checkboxList.toggle();
         });
-
-        dropdown.on("mouseleave", function () {
-            $(this).find(".checkbox-list").hide();
+        $(document).on("click", function (event) {
+            if (!dropdown.is(event.target) && dropdown.has(event.target).length === 0) {
+                checkboxList.hide();
+            }
         });
-
-        // Giới hạn số lượng checkbox được chọn
         dropdown.find('input[type="checkbox"]').on("change", function () {
             const checkedBoxes = dropdown.find('input[type="checkbox"]:checked');
             const checkedCount = checkedBoxes.length;
@@ -24,8 +22,6 @@ $(document).ready(function () {
             } else {
                 dropdown.find('input[type="checkbox"]').prop("disabled", false);
             }
-
-            // Cập nhật giá trị trong ô input
             const selectedValues = checkedBoxes
                 .map(function () {
                     return $(this).next("label").text();
@@ -38,8 +34,8 @@ $(document).ready(function () {
     }
 
     // Xử lý dropdown
-    handleDropdownHover("main-physical-dropdown", "main-physical-input", 3);
-    handleDropdownHover("additional-physical-dropdown", "additional-physical-input", 3);
+    handleDropdownClick("main-physical-dropdown", "main-physical-input", 3);
+    handleDropdownClick("additional-physical-dropdown", "additional-physical-input", 3);
 
     // Xử lý gửi form cho đặc điểm tính cách
     $('#personality-form').on('submit', function (event) {
@@ -72,9 +68,6 @@ $(document).ready(function () {
             },
         });
     });
-
-    // Xử lý submit form cho đặc điểm ngoại hình
-    // Xử lý gửi form cho đặc điểm ngoại hình
 $('#physical-traits-form').on('submit', function (event) {
     event.preventDefault();
 

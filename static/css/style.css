@@ -1,87 +1,182 @@
-/* tuvi/css/style.css */
+/* Tuvi/css/style.css */
 
-/* Đặt kiểu chữ và màu nền cho toàn bộ trang */
-/* body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f7f2e8;
-    color: #4a3f35;
-    margin: 0;
-    padding: 0;
-} */
-
+/* Toàn bộ trang */
 body {
     background-image: url("https://toigingiuvedep.vn/wp-content/uploads/2022/05/anh-vu-tru.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    font-family: 'Arial', sans-serif;
+    color: #4a3f35;
+    margin: 0;
+    padding: 0;
 }
 
+/* Container */
 .container {
     width: 90%;
     max-width: 1000px;
     margin: 20px auto;
     padding: 20px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.9); /* Nền mờ */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
 
 /* Tiêu đề chính */
 h1 {
-    font-size: 24px;
+    font-size: 28px;
     color: #a0522d;
     text-align: center;
     margin-bottom: 20px;
+    text-shadow: 1px 1px 3px #000;
 }
 
 /* Tiêu đề phụ */
 h2 {
-    font-size: 20px;
+    font-size: 22px;
     color: #6b4226;
     margin-top: 30px;
     text-align: center;
+    text-shadow: 1px 1px 3px #000;
 }
 
 /* Nhãn và ô checkbox */
-.traits-selection label {
-    font-size: 16px;
-    margin-right: 10px;
-    cursor: pointer;
+.traits-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.traits-selection div {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .traits-selection input[type="checkbox"] {
-    margin-right: 5px;
+    margin-right: 8px;
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
-.traits-selection{
-    border:1px solid black;
-    display: flex;
-    text-align: center;
-    justify-content: space-around;
-    margin:30px 0px;
+.traits-selection label {
+    font-size: 16px;
+    cursor: pointer;
 }
-#submit-personality-button,
-#submit-physical-button{
-    margin:auto;
+
+/* Dropdown tổng quát */
+.dropdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 30px auto;
+    position: relative;
+}
+
+
+.dropdown input[type="text"] {
+    width: 80%; /* Đảm bảo vừa container */
+    max-width: 300px; /* Giới hạn tối đa khung */
+    padding: 10px; /* Tạo khoảng cách nội bộ */
+    font-size: 14px; /* Giảm kích thước chữ */
+    border: 1px solid #ccc; /* Đường viền */
+    border-radius: 5px; /* Bo góc */
+    text-align: left; /* Căn lề trái */
+    background-color: #f7f7f7; /* Màu nền dịu */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+}
+
+.dropdown input[type="text"] {
+    cursor: pointer; /* Hiển thị con trỏ phù hợp */
+}
+
+.checkbox-list {
+    /*display: flex;*/
+    position: absolute;
+    z-index: 1000;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 320px;
+    margin-top: 5.8%;
+    max-height: 150px;
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Khi không cần thanh cuộn */
+.no-scroll {
+    overflow-y: hidden;
+}
+
+/* Checkbox */
+.checkbox-list div {
+    /*display: flex;*/
+    align-items: center;
+    justify-content: space-between; /* Tạo khoảng cách hợp lý */
+    padding: 4px 8px; /* Khoảng cách nội bộ */
+    border-bottom: 1px solid #f0f0f0; /* Đường viền nhẹ giữa các mục */
+}
+
+.checkbox-list div:last-child {
+    border-bottom: none; /* Xóa đường viền cuối */
+}
+
+.checkbox-list input[type="checkbox"] {
+    transform: scale(1); /* Kích thước nhỏ gọn */
+    cursor: pointer;
+}
+
+.checkbox-list label {
+    font-size: 12px;
+    color: #333;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+
+/* Thanh cuộn tùy chỉnh */
+.checkbox-list::-webkit-scrollbar {
+    width: 5px; /* Chiều rộng của thanh cuộn */
+}
+
+.checkbox-list::-webkit-scrollbar-thumb {
+    background-color: #bbb; /* Màu của thanh kéo */
+    border-radius: 4px; /* Bo góc thanh kéo */
+}
+
+.checkbox-list::-webkit-scrollbar-thumb:hover {
+    background-color: #888; /* Màu thanh kéo khi hover */
+}
+
+.checkbox-list::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Màu nền của thanh cuộn */
 }
 
 /* Nút bấm */
 button {
     display: block;
-    width: 30%;
-    padding: 10px;
+    /* width: 50%; */
+    padding: 12px;
     font-size: 16px;
     background-color: #a0522d;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 10px;
+    margin: auto;
+    margin-top: 50px;
     transition: background-color 0.3s ease;
 }
-
-
 
 button:hover {
     background-color: #8b4513;
@@ -89,47 +184,39 @@ button:hover {
 
 /* Kết quả */
 #result-level-1,
-#physical-traits-section,
-#result-final {
+#result-level-2,
+#physical-traits-section {
     margin-top: 20px;
     padding: 15px;
-    background-color: #fff7e6;
+    background-color: rgba(255, 247, 230, 0.9);
     border: 1px solid #e0d6c1;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #result-level-1 p,
-#result-final p {
+#result-level-2 p {
     font-size: 16px;
     color: #5c4f45;
-}
-
-#result-level-1,
-#physical-traits-section,
-#result-final {
-    display: block;
-    overflow: auto;
-    clear: both;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .container {
         width: 95%;
+        padding: 15px;
     }
 
     h1, h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     button {
         font-size: 14px;
+        width: 70%;
     }
 
     label {
         font-size: 14px;
     }
 }
-
-

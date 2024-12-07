@@ -10,8 +10,6 @@
 <body>
     <div class="container">
         <h1>Dự Đoán Tử Vi</h1>
-
-        <!-- Chọn đặc điểm tính cách -->
         <h2>Chọn Đặc Điểm Tính Cách</h2>
         <form id="personality-form" method="POST">
             {% csrf_token %}
@@ -26,15 +24,11 @@
             <button type="submit" id="submit-personality-button">Xem Kết Quả</button>
         </form>
 
-        <!-- Kết quả mức 1 -->
         <div id="result-level-1" style="display:none;">
             <h3>Kết Quả Mức 1</h3>
             <p><strong>Kết luận mức 1:</strong> <span id="level-1-conclusions"></span></p>
             <p><strong>Quy tắc áp dụng mức 1:</strong> <span id="applied-rules-1"></span></p>
         </div>
-
-
-        <!-- Dropdown đặc điểm ngoại hình -->
 <div id="physical-traits-section" style="display:none;">
     <h2>Chọn Đặc Điểm Ngoại Hình</h2>
     <form id="physical-traits-form" method="POST">
@@ -47,7 +41,7 @@
                     {% if forloop.counter <= 20 %}
                         <div>
                             <input type="checkbox" id="{{ trait_key }}" name="selected_physical_traits[]" value="{{ trait_key }}">
-                            <label for="{{ trait_key }}">{{ trait_name }}</label><br>
+                            <label for="{{ trait_key }}">{{ trait_name }}</label>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -62,7 +56,7 @@
                     {% if forloop.counter > 20 %}
                         <div>
                             <input type="checkbox" id="{{ trait_key }}" name="selected_physical_traits[]" value="{{ trait_key }}">
-                            <label for="{{ trait_key }}">{{ trait_name }}</label><br>
+                            <label for="{{ trait_key }}">{{ trait_name }}</label>
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -71,9 +65,6 @@
         <button type="submit" id="submit-physical-button">Xem Kết Luận Cuối</button>
     </form>
 </div>
-
-
-        <!-- Kết quả cuối cùng -->
 <div id="result-level-2" style="display:none;">
     <h3>Kết Quả Mức 2</h3>
     <p><strong>Kết luận mức 2:</strong> <span id="level-2-conclusions"></span></p>

@@ -12,7 +12,7 @@ physical_traits = {
     'H5': 'Sống mũi thấp', 'H6': 'Mũi to', 'H7': 'Môi dày', 'H8': 'Môi mỏng',
     'H9': 'Môi trái tim', 'H10': 'Tai to', 'H11': 'Tai nhỏ', 'H12': 'Gò má cao',
     'H13': 'Gò má thấp', 'H14': 'Lông mày rậm', 'H15': 'Lông mày mỏng', 'H16': 'Trán cao',
-    'H17': 'Trán thấp', 'H18': 'Mặt trái soan', 'H19': 'Mặt vông', 'H20': 'Mặt tròn',
+    'H17': 'Trán thấp', 'H18': 'Mặt trái soan', 'H19': 'Mặt vuông', 'H20': 'Mặt tròn',
     'H21': 'Cổ cao', 'H22': 'Cổ thấp', 'H23': 'Tay thon', 'H24': 'Tay to',
     'H25': 'Chân dài', 'H26': 'Chân ngắn', 'H27': 'Vai rộng', 'H28': 'Dáng cao người cao',
     'H29': 'Dáng người thấp', 'H30': 'Dáng người thon thả'
